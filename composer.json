@@ -1,0 +1,23 @@
+{
+    "name": "danielsonsilva/diceroller",
+    "description": "Package to work with customized dice rolling and getting the results from them",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Danielson Flávio Xavier da Silva",
+            "email": "danielson_fx@yahoo.com.br"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^9.1",
+        "phan/phan": "^2.7",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "danielsonsilva\\DiceRoller\\": "src/"
+        }
+    },
+    "license": "MIT"
+}
