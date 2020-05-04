@@ -26,13 +26,15 @@ $rollResult = $dice->roll();
 
 Now you can use as a package and do some dice rolling.
 
-#Version History
+# Version History
 
-##v 1.0.0
+## v 1.0.0
+
 - Package danielsonsilva/diceroller created;
 - Features: roll, addDice, addValue and subtractValue;
 - Unit tests to check its effectiveness
 
-##v 1.1.0
+## v 1.1.0
+
 - Features added: string representation of the DiceRoller (__toString())
 - Unit tests improved to check the minimum and maximum values from a roll
