@@ -14,6 +14,15 @@ class OneDie
     private int $numberOfSides;
 
     /**
+     * Get the number of sides from a die
+     * @return int Number of sides of this die
+     */
+    public function getNumberOfSides(): int
+    {
+        return $this->numberOfSides;
+    }
+
+    /**
      * OneDie constructor
      * The constructor only works passing the number of sides of this die
      * @param int $sides Number of sides of the die
@@ -30,5 +39,13 @@ class OneDie
     public function roll(): int
     {
         return rand(1, $this->numberOfSides);
+    }
+
+    /**
+     * String representation of the object
+     */
+    public function __toString()
+    {
+        return "d" . $this->numberOfSides;
     }
 }
