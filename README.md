@@ -28,13 +28,18 @@ Now you can use as a package and do some dice rolling.
 
 # Version History
 
-## v 1.0.0
+## v 1.2.0
 
-- Package danielsonsilva/diceroller created;
-- Features: roll, addDice, addValue and subtractValue;
-- Unit tests to check its effectiveness
+- Features added: isEmpty and set and get modifier to change the modifier completely;
+- Unit tests added to check the new features.
 
 ## v 1.1.0
 
 - Features added: string representation of the DiceRoller (__toString())
 - Unit tests improved to check the minimum and maximum values from a roll
+
+## v 1.0.0
+
+- Package danielsonsilva/diceroller created;
+- Features: roll, addDice, addValue and subtractValue;
+- Unit tests to check its effectiveness
