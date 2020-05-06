@@ -89,4 +89,29 @@ final class DiceRollingTest extends TestCase
         $dice->subtractValue(12);
         $this->assertEquals("- 9", strval($dice));
     }
+
+    public function testRollIsEmpty()
+    {
+        $dice = new DiceRoller();
+        $dice->addDice(3, 4);
+        $this->assertFalse($dice->isEmpty());
+        $dice = new DiceRoller();
+        $this->assertTrue($dice->isEmpty());
+    }
+
+    public function testSetModifiers()
+    {
+        $dice = new DiceRoller();
+        $dice->addDice(1, 6);
+        $dice->addValue(20);
+        $dice->setModifier(2);
+        $rolledResults = [];
+        for ($i = 0; $i < $this->numberOfRolls; $i++) {
+            $rolledResults[] = $dice->roll();
+        }
+        $minimumRoll = min($rolledResults);
+        $maximumRoll = max($rolledResults);
+        $this->assertGreaterThanOrEqual(3, $minimumRoll);
+        $this->assertLessThanOrEqual(8, $maximumRoll);
+    }
 }

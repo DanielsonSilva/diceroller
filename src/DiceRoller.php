@@ -170,4 +170,32 @@ class DiceRoller
         }
         return $string;
     }
+
+    /**
+     * Check if the dice roll is empty or the roll has some dice
+     * @return bool True if the dice roll is empty, False otherwise
+     */
+    public function isEmpty(): bool
+    {
+        return (empty($this->diceAdded));
+    }
+
+    /**
+     * Set the modifier into certain number
+     * @param int $value Value to set the modifier into some value
+     */
+    public function setModifier(int $value): void
+    {
+        $this->modifier = $value;
+    }
+
+    /**
+     * Get the modifier from the dice roll
+     * @return int Actual modifier
+     */
+    public function getModifier(): int
+    {
+        return $this->modifier;
+    }
+
 }
