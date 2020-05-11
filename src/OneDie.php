@@ -11,7 +11,7 @@ namespace danielsonsilva\DiceRoller;
 class OneDie
 {
     /** @var int Represent the number of sides of this die */
-    private int $numberOfSides;
+    private $numberOfSides;
 
     /**
      * Get the number of sides from a die

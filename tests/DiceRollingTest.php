@@ -11,7 +11,7 @@ final class DiceRollingTest extends TestCase
     /**
      * @var int Set the number of rolls to test the minimum and maximum values
      */
-    private int $numberOfRolls = 1000000;
+    private $numberOfRolls = 1000000;
 
     public function testRollSameDie(): void
     {

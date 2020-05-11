@@ -12,10 +12,10 @@ namespace danielsonsilva\DiceRoller;
 class DiceRoller
 {
     /** @var array The dice that a singular roll will have */
-    private array $diceAdded;
+    private $diceAdded;
 
     /** @var int The modifier from this roll */
-    private int $modifier;
+    private $modifier;
 
     /**
      * DiceRoller constructor
