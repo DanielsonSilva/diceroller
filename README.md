@@ -28,6 +28,10 @@ Now you can use as a package and do some dice rolling.
 
 # Version History
 
+## v 1.3.0
+
+- Downgraded the minimum version of PHP required to use this package from 7.4 to 7.3
+
 ## v 1.2.0
 
 - Features added: isEmpty and set and get modifier to change the modifier completely;
