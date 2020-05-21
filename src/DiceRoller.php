@@ -17,6 +17,15 @@ class DiceRoller
     /** @var int The modifier from this roll */
     private $modifier;
 
+    /** 
+     * @var string After the roll, this variable will get the result string describing
+     * each roll.
+     */
+    private $resultString;
+    
+    /** @var string String from the roll result */
+    private $resultRollString;
+    
     /**
      * DiceRoller constructor
      *
@@ -31,20 +40,25 @@ class DiceRoller
     /**
      * After all the dice are added and the modifier is set, then this function
      * will get the result from the roll.
-     * The minimum roll result is number 0
-     * @return int Result from the roll, positive different from zero integers returned
+     * The minimum roll result is number 0 when no die was added and 1 if at least one die was added
+     * @return int Result from the roll, positive different from zero integers returned and
+     * the $this->$resultRollString is set.
      */
     public function roll(): int
     {
         $result = 0;
         if (!empty($this->diceAdded) || $this->modifier != 0) {
+            $valuesObtained = [];
             foreach ($this->diceAdded as $die) {
-                $result += $die->roll();
+                $valueRolled = $die->roll();
+                $result += $valueRolled;
+                $valuesObtained[$die->getNumberOfSides][] = $valueRolled; 
             }
             $result += $this->modifier;
             if ($result <= 0) {
                 return 1;
             }
+            $this->setResultRollString(ksort($valuesObtained));
         }
         return $result;
     }
@@ -198,4 +212,29 @@ class DiceRoller
         return $this->modifier;
     }
 
+    /**
+     * Returns the string from the roll result
+     * @return string The result roll detailing the values obtained from each die or return
+     * an empty string if the property is not set.
+     */
+    public function getResultString(): string
+    {
+        return $this->resultRollString ?? "";
+    }
+    
+    /**
+     * Set the result string showing each die result
+     * @param array $valuesObtained Array with all the values obtained in the roll 
+     */
+    private function setResultRollString(array $valuesObtained): void
+    {
+        $this->resultRollString = "";
+        foreach($valuesObtained as $die => $values) {
+            if (!empty($rollString)) {
+                $this->resultRollString .= " + ";
+            }
+            $this->resultRollString .= sprintf("%dd%d (%s)", count($values), $die, implode(" + ", $values));
+        }
+        $this->resultRollString .= $this->addTextModifier(false);
+    }
 }
