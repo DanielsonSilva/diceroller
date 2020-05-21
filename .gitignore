@@ -1,5 +1,7 @@
 /vendor/
 /.idea/
+/.settings/
 composer.lock
 .phpunit.result.cache
 .project
+.buildpath

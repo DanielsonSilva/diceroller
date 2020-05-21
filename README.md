@@ -22,11 +22,20 @@ $dice->subtractValue(7); // the roll modifier becomes -2
 
 // Then roll to know the results
 $rollResult = $dice->roll();
+
+// Get the string result, in this case could be
+// 3d4 (2 + 1 + 4) + 1d20 (18)
+$stringResult = $dice->getResultString();
 ``` 
 
 Now you can use as a package and do some dice rolling.
 
 # Version History
+
+## v 1.4.0
+
+- After the roll, a result string showing each result from each group dice
+- Unit tests added to check the new features
 
 ## v 1.3.0
 

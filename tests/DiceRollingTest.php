@@ -114,4 +114,30 @@ final class DiceRollingTest extends TestCase
         $this->assertGreaterThanOrEqual(3, $minimumRoll);
         $this->assertLessThanOrEqual(8, $maximumRoll);
     }
+    
+    public function testStringResult()
+    {
+        // one group of dice
+        $dice = new DiceRoller();
+        $dice->addDice(3, 6);
+        $totalValueRolled = $dice->roll();
+        $stringResult = $dice->getResultString();
+        $this->assertGreaterThanOrEqual(3, $totalValueRolled);
+        $this->assertLessThanOrEqual(18, $totalValueRolled);
+        $this->assertStringMatchesFormat("3d6 (%d + %d + %d)", $stringResult);
+        
+        // several groups of dice
+        $dice->addDice(2, 12);
+        $dice->addDice(1, 20);
+        $dice->addDice(4, 4);
+        $totalValueRolled = $dice->roll();
+        $stringResult = $dice->getResultString();
+        $this->assertGreaterThanOrEqual(10, $totalValueRolled);
+        $this->assertLessThanOrEqual(78, $totalValueRolled);
+        $this->assertStringMatchesFormat("4d4 (%d + %d + %d + %d) + 3d6 (%d + %d + %d) + 2d12 (%d + %d) + 1d20 (%d)", $stringResult);
+        
+        // no dice was added
+        $dice = new DiceRoller();
+        $this->assertStringMatchesFormat("", $dice->getResultString());
+    }
 }

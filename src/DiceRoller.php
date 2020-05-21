@@ -1,6 +1,5 @@
 <?php
 
-
 namespace danielsonsilva\DiceRoller;
 
 /**
@@ -52,13 +51,14 @@ class DiceRoller
             foreach ($this->diceAdded as $die) {
                 $valueRolled = $die->roll();
                 $result += $valueRolled;
-                $valuesObtained[$die->getNumberOfSides][] = $valueRolled; 
+                $valuesObtained[$die->getNumberOfSides()][] = $valueRolled; 
             }
             $result += $this->modifier;
             if ($result <= 0) {
                 return 1;
             }
-            $this->setResultRollString(ksort($valuesObtained));
+            ksort($valuesObtained);
+            $this->setResultRollString($valuesObtained);
         }
         return $result;
     }
@@ -230,7 +230,7 @@ class DiceRoller
     {
         $this->resultRollString = "";
         foreach($valuesObtained as $die => $values) {
-            if (!empty($rollString)) {
+            if (!empty($this->resultRollString)) {
                 $this->resultRollString .= " + ";
             }
             $this->resultRollString .= sprintf("%dd%d (%s)", count($values), $die, implode(" + ", $values));
