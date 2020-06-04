@@ -2,6 +2,8 @@
 Were you searching for an easy way to roll that dice with PHP? Well, you've found the right package for you.
 You'll have the object representation to add rolls and modify them. Create, add rolls and roll to know the results.
 
+[Live Demo](http://danielsonsilva.tech/diceroller/)
+
 It is as simples as this:
 
 ```
